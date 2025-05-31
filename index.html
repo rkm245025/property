@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property Website</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+ <!-- loder start -->
+  <div id="loader">
+  <div class="spinner"></div>
+</div>
+ <!-- loder end -->
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar d-block d-sm-none">
+  <h3>Menu</h3>
+  <a href="#">Home</a>
+  <a href="#">Wishlist</a>
+  <a href="#">Profile</a>
+  <a href="#">Settings</a>
+  <a href="#">Logout</a>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+<!-- Footer -->
+<footer class="mobile-footer d-flex d-sm-none">
+  <div class="footer-icon">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </div>
+  <div class="footer-icon">
+    <i class="fas fa-heart"></i>
+    <span>Wishlist</span>
+  </div>
+  <div class="footer-icon">
+    <i class="fas fa-user"></i>
+    <span>Profile</span>
+  </div>
+  <div class="footer-icon" onclick="openSidebar()">
+    <i class="fas fa-bars"></i>
+    <span>Menu</span>
+  </div>
+</footer>
+
+<!-- JS to toggle sidebar -->
+<script>
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+  }
+</script>
+
+<header class="bg-light py-3 sticky-top d-flex d-sm-none  text-white" style="background: #A9B5DF !important;"  >
+  <div class="container" style="background-color: #A9B5DF;">
+    <div class="d-flex justify-content-center align-items-center">
+
+      <h1 class="h4 m-0">Own Property</h1>
+    </div>
+  </div>
+</header>
+
+
+   <!-- footer mobile end -->
+
+    <!-- header start -->
+ <div class="container-fluid  topbar  text-white d-none d-lg-block" style="background-color: #A9B5DF;">
+  <div class="row py-3">
+    <div class="col-lg-2 logo">
+      Logo
+    </div>
+    <div class="col-lg-2">
+      <i class="bi bi-briefcase fs-4"></i>
+      <div class="icon-text">
+        <div><strong>OYO for Business</strong></div>
+        <small>Trusted by 5000 Corporates</small>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <i class="bi bi-building fs-4"></i>
+      <div class="icon-text">
+        <div><strong>List your property</strong></div>
+        <small>Start earning in 30 mins</small>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <i class="bi bi-telephone fs-4"></i>
+      <div class="icon-text">
+        <div><strong>0124-6201611</strong></div>
+        <small>Call us to Book now</small>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <i class="bi bi-globe fs-4"></i>
+      <div class="icon-text">
+        <div><strong>English</strong> <i class="bi bi-caret-down-fill"></i></div>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <i class="bi bi-person-circle fs-4"></i>
+      <div class="icon-text">
+        <div><strong>Login / Signup</strong></div>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- header start -->
+ <div class="container-fluid border-bottom border-1  sticky-top shadow-lg glass-footer d-none d-lg-block ">
+ <div class="container ">
+   <nav class="navbar navbar-expand-lg  ">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo2 (2).png" alt="Logo" width="120" height="50">
+      </a>
+
+      <!-- Toggler (for mobile menu) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Properties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Icons (Right Side) -->
+      <div class="d-none d-lg-flex align-items-center">
+        <span class="me-2">Follow Us:</span>
+        <i class="fa-brands fa-facebook fs-5 ms-2"></i>
+        <i class="fa-brands fa-instagram fs-5 ms-2"></i>
+        <i class="fa-brands fa-twitter fs-5 ms-2"></i>
+        <i class="fa-brands fa-youtube fs-5 ms-2"></i>
+      </div>
+    </div>
+  </nav>
+ </div>
+</div>
+
+<!-- header end -->
+<!-- header start -->
+<div class="container-fluid banner py-5">
+    <div class="container">
+    <div class="row py-5">
+        <div class="col-sm-12 text-center py-5 text-white">
+            <h1>Find Your Perfect Property with Ease
+
+</h1>
+<p class="lead fw-semibold">Explore thousands of verified listings. Buy, sell, or rent homes, apartments, plots, and commercial spaces—all in one trusted place.</p>
+<div>
+   <a href="#properties" class="btn btn-danger btn-lg me-3 my-3">Browse Properties</a>
+<a href="#list-property" class="btn btn-outline-danger btn-lg my-3">List Your Property</a>
+</div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- header end -->
+  
+
+<!-- we got property start -->
+ <div class="container-fluid mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="thin fw-semibold"><span class="pb-1 border-bottom border-2 border-danger">We</span>'ve got properties for everyone</h4>
+      </div>
+    </div>
+<div class="container py-5">
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card text-white border-0 rounded-4 overflow-hidden position-relative"
+        style="background: url('img/budget-homes.webp') center/cover no-repeat; height: 250px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25"></div>
+        <div class="card-body position-relative d-flex flex-column justify-content-end">
+          <h3 class="fw-bold mb-1 fs-5">55122</h3>
+          <h5 class="mb-2 fs-6">Owner Properties</h5>
+          <a href="#" class="text-white fw-semibold fs-6">Explore →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card text-white border-0 rounded-4 overflow-hidden position-relative"
+        style="background: url('img/new-projects.webp') center/cover no-repeat; height: 250px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25"></div>
+        <div class="card-body position-relative d-flex flex-column justify-content-end">
+          <h3 class="fw-bold mb-1 fs-5">999</h3>
+          <h5 class="mb-2 fs-6">Projects</h5>
+          <a href="#" class="text-white fw-semibold">Explore →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card text-white border-0 rounded-4 overflow-hidden position-relative"
+        style="background: url('img/owner-property.webp') center/cover no-repeat; height: 250px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25"></div>
+        <div class="card-body position-relative d-flex flex-column justify-content-end">
+          <h3 class="fw-bold mb-1 fs-5">48689</h3>
+          <h5 class="mb-2 fs-6">Ready to move-in</h5>
+          <a href="#" class="text-white fw-semibold">Explore →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card text-white border-0 rounded-4 overflow-hidden position-relative"
+        style="background: url('img/ready-to-move-in.webp') center/cover no-repeat; height: 250px;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25"></div>
+        <div class="card-body position-relative d-flex flex-column justify-content-end">
+          <h3 class="fw-bold mb-1 fs-5">1537</h3>
+          <h5 class="mb-2 fs-6">Budget Homes</h5>
+          <a href="#" class="text-white fw-semibold">Explore →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  </div>
+ </div>
+<!-- we got property end -->
+
+
+<!-- popular property start -->
+
+<div class="container-fluid py-5" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000" >
+  <div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-semibold"><span class="pb-2 border-bottom border-warning border-2">Po</span>pular Owner Properties</h4>
+    <a href="#" class="text-danger fw-semibold text-decoration-none">See all Properties →</a>
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p1.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 4
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.10 Cr <span class="fw-normal">| 1305 sqft</span></h5>
+            <p class="mb-0 text-muted">Hosahalli, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p2.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 15
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.20 Cr <span class="fw-normal">| 1147 sqft</span></h5>
+            <p class="mb-0 text-muted">Kalena Agrahara, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p3.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 8
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.75 Cr <span class="fw-normal">| 1450 sqft</span></h5>
+            <p class="mb-0 text-muted">Whitefield, Bangalore</p>
+            <small class="text-muted">Under Construction</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p4.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 12
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">4 BHK Villa</p>
+            <h5 class="fw-bold mb-1">₹2.80 Cr <span class="fw-normal">| 2400 sqft</span></h5>
+            <p class="mb-0 text-muted">Sarjapur Road, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 5 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p5.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 6
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">1 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹85 L <span class="fw-normal">| 850 sqft</span></h5>
+            <p class="mb-0 text-muted">Electronic City, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 6 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p6.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p7.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p8.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+</div>
+
+
+<!-- popular property end -->
+
+
+<!-- heighlights start -->
+ <div class="container mt-5 pt-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="thin fw-semibold"><span class="pb-1 border-bottom border-2 border-danger">Th</span>e properties We have</h4>
+      </div>
+    </div>
+ </div>
+
+<div class="container my-5">
+  <div class="row my-5">
+    <div class="col-sm-12 mx-auto">
+        <div class="row">
+            <div class="col-sm-4 text-end  shadow-lg my-2" style="background-image: url('img/t4.jpg'); height: 300px; background-size: cover;" data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1000">
+                <span class="fs-3 text-light mt-5 text-shadow ">Residential</span>
+
+            </div>
+            <div class="col-sm-4 shadow-lg my-2">
+
+                <div class="text-end shadow-lg " style="height: 150px; background-image: url('img/t2.jpg'); background-size: cover;" data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1000"
+                >
+
+                    <span class="fs-3 text-light mt-5 text-shadow text-black">. Agricultural </span>
+                </div>
+                <div class="shadow-lg " style="height: 150px; background-image: url('img/t3.jpg'); background-size: cover; margin-top: 3px;" data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1000">
+                    <span class="fs-3 text-light mt-5 text-shadow ">Industrial</span>
+                </div>
+               
+            </div>
+            <div class="col-sm-4 shadow-lg my-2" style="background-image: url('img/t1.jpg'); height: 300px; background-size: cover;" data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="1000">
+
+                <span class="fs-3 text-light mt-5 text-shadow text-black">Commercial</span>
+            </div>
+           
+        </div>
+    </div>
+</div>
+</div>
+<!-- heighlights end -->
+
+
+<!-- worth start -->
+<div class="container-fluid my-5" data-aos="fade-up" data-aos-duration="1000">
+  <div class="propworth-bg text-white p-4 p-lg-5">
+    <div class="overlay1 p-4 p-lg-5">
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-danger text-white rounded-circle d-flex justify-content-center align-items-center me-2" style="width: 40px; height: 40px;">
+              <i class="bi bi-currency-rupee fs-4"></i>
+            </div>
+            <h4 class="mb-0 fw-bold">PropWorth</h4>
+          </div>
+          <h3 class="fw-bold mb-3">Check Estimated Transaction Price of any Property</h3>
+          <ul class="list-unstyled fw-bold">
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-white me-2"></i>98% accuracy backed by ML models</li>
+            <li><i class="bi bi-check-circle-fill text-white me-2"></i>Insight from 1 Crore+ listings posted annually</li>
+          </ul>
+        </div>
+
+        <!-- Right Form -->
+        <div class="col-lg-6">
+          <div class="glass-form">
+            <div class="form-wrapper">
+              <input type="text" class="form-control" placeholder="Enter Project/Locality" required>
+              <button type="submit">Get Estimate</button>
+            </div>
+            <p class="text-white mt-3 text-center fw-semibold small">Most accurate estimate in just 30 seconds</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- worth end -->
+
+
+<!-- property in lucknow -->
+ <div class="container-fluid py-5" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-semibold"><span class="pb-2 border-bottom border-warning border-2">Po</span>pular Properties in Lucknow</h4>
+    <a href="#" class="text-danger fw-semibold text-decoration-none">See all Properties →</a>
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p1.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 4
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.10 Cr <span class="fw-normal">| 1305 sqft</span></h5>
+            <p class="mb-0 text-muted">Hosahalli, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p2.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 15
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.20 Cr <span class="fw-normal">| 1147 sqft</span></h5>
+            <p class="mb-0 text-muted">Kalena Agrahara, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p3.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 8
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.75 Cr <span class="fw-normal">| 1450 sqft</span></h5>
+            <p class="mb-0 text-muted">Whitefield, Bangalore</p>
+            <small class="text-muted">Under Construction</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p4.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 12
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">4 BHK Villa</p>
+            <h5 class="fw-bold mb-1">₹2.80 Cr <span class="fw-normal">| 2400 sqft</span></h5>
+            <p class="mb-0 text-muted">Sarjapur Road, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 5 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p5.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 6
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">1 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹85 L <span class="fw-normal">| 850 sqft</span></h5>
+            <p class="mb-0 text-muted">Electronic City, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 6 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p6.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p7.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p8.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+</div>
+<!-- property in lucknow end -->
+
+
+<!-- tools start -->
+ <div class="container mt-5 pt-5">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="thin fw-semibold"><span class="pb-1 border-bottom border-2 border-info">Ad</span>vice and Tools</h4>
+      </div>
+    </div>
+ </div>
+ <div class="container my-5" data-aos="fade-up" data-aos-duration="1000">
+  
+
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="shadow-lg rounded-4 p-4 h-100">
+        <img src="https://img.icons8.com/ios-filled/64/000000/combo-chart.png" alt="Rates & Trends" class="mb-3" width="40">
+        <h5 class="fw-semibold">Rates & Trends</h5>
+        <p class="text-muted mb-3">Know all about Property Rates & Trends in your city</p>
+        <a href="#" class="text-danger fw-bold text-decoration-none">View now →</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="shadow-lg rounded-4 p-4 h-100">
+        <img src="https://img.icons8.com/ios-filled/64/000000/calendar--v1.png" alt="EMI Calculator" class="mb-3" width="40">
+        <h5 class="fw-semibold">EMI Calculator</h5>
+        <p class="text-muted mb-3">Know how much you'll have to pay every month on your loan</p>
+        <a href="#" class="text-danger fw-bold text-decoration-none">View now →</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="shadow-lg rounded-4 p-4 h-100">
+        <img src="https://img.icons8.com/ios-filled/50/000000/receive-cash.png" alt="Investment Hotspot" class="mb-3" width="40">
+        <h5 class="fw-semibold">Investment Hotspot</h5>
+        <p class="text-muted mb-3">Discover the top localities in your city for investment</p>
+        <a href="#" class="text-danger fw-bold text-decoration-none">View now →</a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-3">
+      <div class="shadow-lg rounded-4 p-4 h-100">
+        <img src="https://img.icons8.com/ios-filled/64/000000/news.png" alt="Research Insights" class="mb-3" width="40">
+        <h5 class="fw-semibold">Research Insights</h5>
+        <p class="text-muted mb-3">Get experts insights and research reports on real estate</p>
+        <a href="#" class="text-danger fw-bold text-decoration-none">View now →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- tools end -->
+
+<!-- extra content -->
+  <div class="container mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="thin fw-semibold"><span class="pb-1 border-bottom border-2 border-info">Yo</span>ur Real Estate Guide</h4>
+      </div>
+    </div>
+ </div>
+ <div class="container my-5" data-aos="fade-up" data-aos-duration="1000">
+ 
+
+  <div class="row g-4" data-aos="fade-up" data-aos-duration="1000">
+    <!-- Industry Insights -->
+    <div class="col-md-6 ">
+      <div class="border rounded-4 p-4 h-100 " style="border-top: 3px solid #e91e63 !important">
+        <h5 class="fw-bold mb-4">Industry Insights</h5>
+        
+        <ul class="list-unstyled">
+          <li class="mb-3 d-flex align-items-center">
+            <img src="https://img.icons8.com/ios-filled/20/fa314a/play.png" class="me-2" alt="Play">
+            The Ultimate Landlord Tenant Checklist for First-Time Renters
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <img src="https://img.icons8.com/ios-filled/20/fa314a/play.png" class="me-2" alt="Play">
+            What Is RERA Carpet Area & How is it Calculated
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <img src="https://img.icons8.com/ios-filled/20/fa314a/play.png" class="me-2" alt="Play">
+            The 12-Point Home Buying Checklist - for a Smooth Home Buying Experience
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <img src="https://img.icons8.com/ios-filled/20/fa314a/play.png" class="me-2" alt="Play">
+            What is Rent Agreement - Rent Agreement Sample Formats
+          </li>
+          <li class="mb-3 d-flex align-items-center">
+            <img src="https://img.icons8.com/ios-filled/20/000000/document.png" class="me-2" alt="Doc">
+            Ready Reckoner Rates in Bangalore
+          </li>
+        </ul>
+
+        <a href="#" class="text-danger fw-bold text-decoration-none">See all →</a>
+      </div>
+    </div>
+
+    <!-- Legal Updates -->
+    <div class="col-md-6">
+      <div class="border rounded-4 p-4 h-100" style="border-top: 3px solid #e91e63 !important;">
+        <h5 class="fw-bold mb-4">Legal Updates</h5>
+
+        <div class="d-flex mb-4">
+          <img src="https://i.imgur.com/7hDJHLW.png" alt="Video" class="rounded me-3" width="100">
+          <div>
+            <p class="mb-1 fw-medium">Inheritance Laws In India - All You Need to Know</p>
+            <a href="#" class="text-danger fw-bold text-decoration-none">Watch video →</a>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="d-flex mb-3">
+          <img src="https://i.imgur.com/vLyR1eF.png" alt="Article" class="rounded me-3" width="100">
+          <div>
+            <p class="mb-1 fw-medium">Pay BBMP Property Tax Online 2025 @ <br> bbmptax.karnataka.gov.in</p>
+            <a href="#" class="text-danger fw-bold text-decoration-none">Read article →</a>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+          <button class="btn btn-danger rounded-pill px-4 fw-bold">Explore Services</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- extra content end -->
+
+
+<!-- map content start -->
+ <section class="py-5" style="background-color: #f8f9fa;" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Map and Bubbles -->
+      <div class="col-lg-7 text-center mb-4 mb-lg-0 position-relative">
+        <img src="img/map.avif" class="img-fluid" alt="Map Background">
+
+        <!-- Example Location Pins (position using custom CSS or absolutely over map image) -->
+        <div class="position-absolute" style="top: 40%; left: 30%;">
+          <img src="https://i.imgur.com/d1g7dFJ.jpg" class="rounded-circle border border-white shadow" width="50" height="50" alt="Location">
+        </div>
+        <div class="position-absolute" style="top: 50%; left: 55%;">
+          <img src="https://i.imgur.com/ujzXGe5.jpg" class="rounded-circle border border-white shadow" width="50" height="50" alt="Location">
+        </div>
+        <!-- Add more pins as needed -->
+      </div>
+
+      <!-- Content -->
+      <div class="col-lg-5" data-aos="fade-up" data-aos-duration="1000">
+        <h3 class="fw-bold">There's an World around. <span class="text-dark">Always.</span></h3>
+        <p class="text-muted">More Destinations. More Ease. More Affordable.</p>
+
+        <div class="d-flex align-items-center mb-3">
+          <h2 class="fw-bold mb-0 me-2">35+</h2>
+          <span class="text-muted">Countries</span>
+          <span class="mx-3">/</span>
+          <h2 class="fw-bold mb-0 me-2">174,000+</h2>
+          <span class="text-muted">Hotels & Homes</span>
+        </div>
+
+        <!-- Country Legend -->
+        <div class="row row-cols-2 row-cols-sm-3 g-2 mt-4">
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #00c853;"></span>
+            <span>Indonesia</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #ff5252;"></span>
+            <span>Malaysia</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #ffc107;"></span>
+            <span>Denmark</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #40c4ff;"></span>
+            <span>US</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #ea80fc;"></span>
+            <span>UK</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <span class="me-2 rounded-circle" style="width:10px; height:10px; background-color: #7c4dff;"></span>
+            <span>Netherlands</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- map content end -->
+
+<!-- footer start -->
+ <!-- footer start -->
+<div class="container-fluid" style="background-color: #A9B5DF;">
+  <div class="row  text-light pb-2 pt-5">
+  <div class="col-sm-11 mx-auto">
+    
+    <!-- Contact Info -->
+    <div class="row mb-4">
+      <div class="col-sm-4 d-flex">
+        <i class="fa-solid fa-location-dot fs-1 px-2"></i>
+        <div>
+          <h5>Our Office</h5>
+          <p>Dev Nagar Colony, Raebareli Road<br>(Near Naveen Galla Mandi), Ayodhya (Faizabad) - 224001</p>
+        </div>
+      </div>
+      <div class="col-sm-4 d-flex">
+        <i class="fa-solid fa-phone fs-1 px-2"></i>
+        <div>
+          <h5>Call Us</h5>
+          <p>+91 94150 25623<br>+91 94157 80361</p>
+        </div>
+      </div>
+      <div class="col-sm-4 d-flex">
+        <i class="fa-regular fa-envelope fs-1 px-2"></i>
+        <div>
+          <h5>Email Us</h5>
+          <p>info@propertyhub.com<br>support@propertyhub.com</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- About & Links -->
+    <div class="row mb-4">
+      <div class="col-sm-4">
+        <h4>About PropertyHub</h4>
+        <hr class="bg-light">
+        <p>
+          PropertyHub helps you find your perfect home, commercial space, or investment property. Explore listings, compare prices, and connect with trusted agents—all in one place.
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <h5>Quick Links</h5>
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light">Home</a></li>
+              <li><a href="#" class="text-light">Properties</a></li>
+              <li><a href="#" class="text-light">Agents</a></li>
+              <li><a href="#" class="text-light">FAQs</a></li>
+              <li><a href="#" class="text-light">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light">About Us</a></li>
+              <li><a href="#" class="text-light">Testimonials</a></li>
+              <li><a href="#" class="text-light">Blog</a></li>
+              <li><a href="#" class="text-light">Terms & Conditions</a></li>
+              <li><a href="#" class="text-light">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Newsletter -->
+      <div class="col-sm-4">
+        <h5>Subscribe</h5>
+        <p><small>Subscribe to get property updates and special offers straight to your inbox.</small></p>
+        <div class="d-flex border border-light">
+          <input type="email" class="form-control ps-3 rounded-0 border-0" placeholder="Email Address">
+          <button class="btn btn-danger rounded-0"><i class="fa-brands fa-telegram"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social & Copyright -->
+    <div class="row align-items-center mt-4">
+      <div class="col-sm-6">
+        <p class="fs-5 fw-bold">Follow Us</p>
+        <div class="d-flex gap-3 fs-4">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+
+      <div class="col-sm-6 text-end">
+        <small>
+          &copy; 2025 PropertyHub. Designed & Developed by <span class="text-danger fw-bold">Ravi Kishan</span> 
+      </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="row mt-3 border-top pt-3">
+      <div class="col-sm-12 d-flex justify-content-center gap-4">
+        <a href="#" class="text-light">Home</a>
+        <a href="#" class="text-light">Terms</a>
+        <a href="#" class="text-light">Privacy</a>
+        <a href="#" class="text-light">Support</a>
+        <a href="#" class="text-light">Contact</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<!-- footer end -->
+
+<!-- footer start end -->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+
+
+    <!-- Javascript start here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+
+
+<!-- Swiper JS -->
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 25,
+    centeredSlides: false,
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      // when window width is >= 576px
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 5
+      },
+      // when window width is >= 768px
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      // when window width is >= 992px
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      }
+    }
+  });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+  function openMenu() {
+    document.getElementById("sideMenu").style.width = "250px";
+    document.getElementById("overlay").style.display = "block";
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
+    document.getElementById("overlay").style.display = "none";
+  }
+</script>
+
+<script>
+  window.addEventListener("load", function() {
+    document.getElementById("loader").style.display = "none";
+  });
+</script>
+
+
+
+
+
+
+</html>
