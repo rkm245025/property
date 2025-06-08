@@ -156,7 +156,7 @@
   </div>
 
   <!-- Search Box -->
-  <div class="input-group search-bar py-2 px-1 bg-white mb-4 border-1 border-dark border mx-auto ">
+  <div class="input-group search-bar py-2 px-1 bg-white mb-4 border-1 border-dark border mx-auto " data-bs-toggle="modal" data-bs-target="#filterModal">
     <span class="input-group-text bg-white border-0">
       <i class="bi bi-geo-alt-fill text-danger"></i>
     </span>
@@ -165,6 +165,72 @@
       <i class="bi bi-search search-icon"></i>
     </span>
   </div>
+  <div class="modal fade mob-mod" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-sm-down">
+    <div class="modal-content mobile-modal">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Filters</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- Tabs -->
+        <div class="d-flex justify-content-around mb-3">
+          <button class="tab-btn active" onclick="setTab(this)">Buy</button>
+          <button class="tab-btn" onclick="setTab(this)">Rent</button>
+          <button class="tab-btn" onclick="setTab(this)">New Projects</button>
+          <button class="tab-btn" onclick="setTab(this)">Plot</button>
+          <button class="tab-btn" onclick="setTab(this)">Commercial</button>
+        </div>
+
+        <!-- City/Location -->
+        <div class="mb-3">
+          <label class="form-label fw-bold">Select City/Localities</label>
+          <div id="locations" class="d-flex flex-wrap gap-2 mb-2">
+            <span class="badge bg-light text-dark border">Bangalore</span>
+          </div>
+          <div id="addLocationBox" class="d-none">
+            <input type="text" id="newLocationInput" class="form-control mb-2" placeholder="Enter location..." />
+            <button class="btn btn-sm btn-success" onclick="confirmLocation()">Add Location</button>
+          </div>
+          <button id="addLocationBtn" class="btn btn-outline-secondary btn-sm" onclick="showLocationInput()">+ Add More</button>
+        </div>
+
+        <!-- Budget -->
+        <div class="mb-3">
+          <label class="form-label fw-bold">Budget</label>
+          <div class="d-flex gap-2">
+            <select class="form-select"><option>Min</option></select>
+            <select class="form-select"><option>Max</option></select>
+          </div>
+        </div>
+
+        <!-- Property Types -->
+        <div class="mb-3">
+          <label class="form-label fw-bold">Property Type</label>
+          <div class="d-flex justify-content-between flex-wrap" id="propertyTypes">
+            <div class="prop-type active" onclick="toggleType(this)">Plot/Land</div>
+            <div class="prop-type" onclick="toggleType(this)">Commercial Land</div>
+            <div class="prop-type" onclick="toggleType(this)">Agricultural Land</div>
+          </div>
+        </div>
+
+        <!-- Covered Area -->
+        <div class="mb-3">
+          <label class="form-label fw-bold">Covered Area (sqft)</label>
+          <div class="d-flex gap-2">
+            <select class="form-select"><option>Min</option></select>
+            <select class="form-select"><option>Max</option></select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-danger w-100">View 14243 Properties</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Previous search suggestions -->
   <div class="text-muted mb-2">Because you searched <strong>Bangalore</strong></div>
@@ -200,7 +266,7 @@
     <!-- header start -->
 
 <!-- header start -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom my-nav d-none d-lg-block sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom my-nav d-none d-md-block sticky-top">
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -1301,6 +1367,52 @@
 </script>
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const propertyTypes = document.querySelectorAll(".prop-type");
+    const addLocationBtn = document.getElementById("addLocationBtn");
+    const addLocationBox = document.getElementById("addLocationBox");
+    const newLocationInput = document.getElementById("newLocationInput");
+    const locationsContainer = document.getElementById("locations");
+
+    // Tab activation
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+
+    // Property type multi-select
+    propertyTypes.forEach(type => {
+      type.addEventListener("click", () => {
+        type.classList.toggle("active");
+      });
+    });
+
+    // Show location input field
+    addLocationBtn.addEventListener("click", () => {
+      addLocationBtn.classList.add("d-none");
+      addLocationBox.classList.remove("d-none");
+      newLocationInput.focus();
+    });
+
+    // Add new location
+    document.querySelector("#addLocationBox button").addEventListener("click", () => {
+      const value = newLocationInput.value.trim();
+      if (value) {
+        const badge = document.createElement("span");
+        badge.className = "badge bg-light text-dark border";
+        badge.textContent = value;
+        locationsContainer.appendChild(badge);
+        newLocationInput.value = "";
+        addLocationBox.classList.add("d-none");
+        addLocationBtn.classList.remove("d-none");
+      }
+    });
+  });
+</script>
 
 
 
