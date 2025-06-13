@@ -457,7 +457,7 @@
     .search-box {
       background: white;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      /* box-shadow: 0 4px 10px rgba(0,0,0,0.08); */
       padding: 30px;
     }
 
@@ -506,9 +506,9 @@
     }
 
     .property-option.active {
-      background-color: #0d6efd;
+      background-color: #d32f2f;
       color: white;
-      border-color: #0d6efd;
+      border-color: #d32f2f;
     }
 
     .select2-container .select2-selection--multiple {
@@ -971,3 +971,32 @@
 }
 
 
+.mynav23 .mynav23-item {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.mynav23 .mynav23-item:hover,
+.mynav23 .mynav23-item.active {
+  color: #d32f2f; /* red */
+}
+
+.mynav23 .mynav23-item::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #d32f2f;
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+.mynav23 .mynav23-item:hover::after,
+.mynav23 .mynav23-item.active::after {
+  width: 100%;
+}
