@@ -374,7 +374,33 @@
 
 <!-- header end -->
 <!-- header start -->
+
+
 <div class="container mt-5 d-none d-lg-block">
+  <div class="text-center mb-5">
+    <h1 class="fs-3 fw-light">Welcome back! Let’s continue your search</h1>
+
+  </div>
+  <div class="mynav23 d-flex justify-content-center ">
+  <div class="mynav23-item px-3">Buy</div>
+  <div class="mynav23-item px-3">Rent</div>
+  <div class="mynav23-item px-3">magicHomes</div>
+  <div class="mynav23-item px-3">PG</div>
+  <div class="mynav23-item px-3">Plot</div>
+  <div class="mynav23-item px-3">Commercial</div>
+  <div class="mynav23-item px-3">Post Free Property Ad</div>
+</div>
+<script>
+  const navItems = document.querySelectorAll('.mynav23 .mynav23-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+</script>
+
+
   <div class="search-box">
     <div class="row mb-4 align-items-end">
       <!-- Location Multi-Select -->
