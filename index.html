@@ -405,7 +405,7 @@
     <div class="row mb-4 align-items-end">
       <!-- Location Multi-Select -->
       <div class="col-md-4 position-relative">
-        <label class="form-label">Location</label>
+        <!-- <label class="form-label">Location</label>
         <i class="fas fa-map-marker-alt form-control-icon"></i>
         <select class="form-select icon-input" id="locationSelect" multiple>
           <option>Bangalore</option>
@@ -414,13 +414,92 @@
           <option>Mumbai</option>
           <option>Delhi</option>
           <option>Pune</option>
-        </select>
+        </select> -->
+        <label class="form-label">Location</label>
+  <div class="mylocation-search-wrapper">
+    <i class="bi bi-geo-alt-fill mylocation-search-icon"></i>
+    <div class="mylocation-search" id="tagInputWrapper" onclick="focusInput()">
+      <input type="text" id="locationInput" placeholder="Type location..."  />
+    </div>
+    <div id="suggestions" class="mylocation-suggestions d-none"></div>
+  </div>
       </div>
+      <script>
+  const cities = [
+    "Delhi", "Mumbai", "Bengaluru", "Chennai", "Hyderabad", "Kolkata", "Pune", "Ahmedabad", "Jaipur", "Lucknow"
+  ];
+
+  const input = document.getElementById('locationInput');
+  const suggestionsBox = document.getElementById('suggestions');
+  const wrapper = document.getElementById('tagInputWrapper');
+  const selectedTags = [];
+
+  input.addEventListener('input', () => {
+    const val = input.value.trim().toLowerCase();
+    suggestionsBox.innerHTML = '';
+
+    if (!val) {
+      suggestionsBox.classList.add('d-none');
+      return;
+    }
+
+    const filtered = cities.filter(city =>
+      city.toLowerCase().includes(val) &&
+      !selectedTags.includes(city)
+    );
+
+    if (filtered.length === 0) {
+      suggestionsBox.classList.add('d-none');
+      return;
+    }
+
+    filtered.forEach(city => {
+      const div = document.createElement('div');
+      div.textContent = city;
+      div.addEventListener('click', () => {
+        selectedTags.push(city);
+        renderTags();
+        input.value = '';
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.classList.add('d-none');
+      });
+      suggestionsBox.appendChild(div);
+    });
+
+    suggestionsBox.classList.remove('d-none');
+  });
+
+  function renderTags() {
+    wrapper.querySelectorAll('.mylocation-tag').forEach(tag => tag.remove());
+
+    selectedTags.forEach((city, index) => {
+      const span = document.createElement('span');
+      span.className = 'mylocation-tag';
+      span.innerHTML = `${city} <i class="bi bi-x" onclick="removeTag(${index})"></i>`;
+      wrapper.insertBefore(span, input);
+    });
+  }
+
+  function removeTag(index) {
+    selectedTags.splice(index, 1);
+    renderTags();
+  }
+
+  function focusInput() {
+    input.focus();
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mylocation-search-wrapper')) {
+      suggestionsBox.classList.add('d-none');
+    }
+  });
+</script>
 
       <!-- Property Type Button -->
       <div class="col-md-4">
         <label class="form-label">Property Type</label>
-        <button class="btn btn-outline-danger w-100" id="togglePropertyType">
+        <button class="btn btn-outline-danger w-100 py-2" id="togglePropertyType">
           <i class="fas fa-home me-2"></i> Residential
         </button>
       </div>
