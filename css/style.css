@@ -1000,3 +1000,83 @@
 .mynav23 .mynav23-item.active::after {
   width: 100%;
 }
+
+.mylocation-search-wrapper {
+      position: relative;
+    }
+
+    .mylocation-search-icon {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #f44336;
+      z-index: 2;
+    }
+
+    .mylocation-search {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 6px 10px 6px 38px;
+      min-height: 48px;
+      background: #fff;
+      position: relative;
+      cursor: text;
+    }
+
+    .mylocation-search input {
+      border: none;
+      outline: none;
+      flex: 1;
+      min-width: 100px;
+      padding: 6px;
+      font-size: 14px;
+      height: 12px !important;
+     
+    }
+
+    .mylocation-tag {
+      background-color: #f44336;
+      color: white;
+      border-radius: 20px;
+      padding: 5px 10px;
+      margin: 3px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .mylocation-tag i {
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    .mylocation-suggestions {
+      position: absolute;
+      background: white;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-top: none;
+      max-height: 180px;
+      overflow-y: auto;
+      z-index: 10;
+      top: 100%;
+      left: 0;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .mylocation-suggestions div {
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .mylocation-suggestions div:hover {
+      background-color: #f1f1f1;
+    }
+
+
+  
