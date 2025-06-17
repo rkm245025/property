@@ -1,0 +1,68 @@
+ .budget-dropdown {
+      position: relative;
+      width: 250px;
+    }
+
+    .budget-toggle {
+      /* border: 1px solid #ccc; */
+      padding: 10px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .dropdown-content.active {
+      display: block;
+    }
+
+    .price-tabs {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .price-tab {
+      padding: 5px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      background-color: #f3f3f3;
+      border: 1px solid transparent;
+    }
+
+    .price-tab.active {
+      border: 1px solid #999;
+      background-color: white;
+    }
+
+    .price-list {
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 10px 15px;
+    }
+
+    .price-list div {
+      padding: 6px 0;
+      cursor: pointer;
+    }
+
+    .price-list div:hover {
+      background-color: #f2f2f2;
+    }
+
+    .selected-value {
+      font-weight: 500;
+    }
