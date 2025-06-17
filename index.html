@@ -23,6 +23,8 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/budget.css">
   </head>
   <body>
 
@@ -201,7 +203,7 @@
   <div class="modal-dialog modal-fullscreen-sm-down">
     <div class="modal-content mobile-modal">
       <div class="modal-header border-0">
-        <h5 class="modal-title">Filters</h5>
+        <h5 class="modal-title"><i class="fas fa-arrow-left" data-bs-dismiss="modal" aria-label="Close" ></i> Filters </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -232,20 +234,43 @@
         <div class="mb-3">
           <label class="form-label fw-bold">Budget</label>
           <div class="d-flex gap-2">
-            <select class="form-select"><option>Min</option></select>
-            <select class="form-select"><option>Max</option></select>
+            <select class="form-select"><option>Min</option>
+            <option>5-lac</option>
+            <option>10-lac</option>
+            <option>15-lac</option>
+            <option>20-lac</option>
+            <option>25-lac</option>
+
+            </select>
+            <select class="form-select"><option>Max</option>
+            <option>5-lac</option>
+            <option>10-lac</option>
+            <option>15-lac</option>
+            <option>20-lac</option>
+            <option>25-lac</option>
+            </select>
           </div>
         </div>
 
         <!-- Property Types -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label class="form-label fw-bold">Property Type</label>
           <div class="d-flex justify-content-between flex-wrap" id="propertyTypes">
-            <div class="prop-type active" onclick="toggleType(this)">Plot/Land</div>
-            <div class="prop-type" onclick="toggleType(this)">Commercial Land</div>
-            <div class="prop-type" onclick="toggleType(this)">Agricultural Land</div>
+            <div class="prop-type active" >Plot/Land</div>
+            <div class="prop-type" >Commercial Land</div>
+            <div class="prop-type">Agricultural Land</div>
           </div>
-        </div>
+        </div> -->
+        <div class="mb-3">
+  <label class="form-label fw-bold">Property Type</label>
+  <div class="d-flex justify-content-between flex-wrap" id="myPropertyTypes">
+    <div class="my-prop-item">Plot/Land</div>
+    <div class="my-prop-item">Commercial Land</div>
+    <div class="my-prop-item">Agricultural Land</div>
+  </div>
+</div>
+
+
 
         <!-- Covered Area -->
         <div class="mb-3">
@@ -257,7 +282,28 @@
         </div>
       </div>
       <div class="modal-footer border-0">
-        <button class="btn btn-danger w-100">View 14243 Properties</button>
+      <button class="btn btn-danger w-100" id="propertyCountBtn">View 0 Properties</button>
+      <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".my-prop-item");
+    const viewBtn = document.getElementById("propertyCountBtn");
+
+    items.forEach(item => {
+      item.addEventListener("click", function () {
+        this.classList.toggle("active");
+        updateCount();
+      });
+    });
+
+    function updateCount() {
+      const activeItems = document.querySelectorAll(".my-prop-item.active").length;
+      viewBtn.textContent = `View ${activeItems} Properties`;
+    }
+
+    updateCount(); // Run on page load
+  });
+</script>
+
       </div>
     </div>
   </div>
@@ -348,14 +394,14 @@
       <div class="d-flex align-items-center gap-3">
         <!-- Profile -->
         <div class="dropdown">
-          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none " data-bs-toggle="dropdown">
             <img src="https://img.icons8.com/color/96/ffffff/user-male-circle--v1.png" alt="Profile" class="profile-img">
           </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+          <ul class="dropdown-menu dropdown-menu-end text-dark bg-light">
+            <li><a class="dropdown-item text-dark" href="#">My Profile</a></li>
+            <li><a class="dropdown-item text-dark" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider "></li>
+            <li><a class="dropdown-item text-dark" href="#">Logout</a></li>
           </ul>
         </div>
 
@@ -376,7 +422,7 @@
 <!-- header start -->
 
 
-<div class="container mt-5 d-none d-lg-block">
+<div class="m-container mt-5 d-none d-lg-block">
   <div class="text-center mb-5">
     <h1 class="fs-3 fw-light">Welcome back! Let’s continue your search</h1>
 
@@ -400,132 +446,100 @@
   });
 </script>
 
-
-  <div class="search-box">
-    <div class="row mb-4 align-items-end">
-      <!-- Location Multi-Select -->
-      <div class="col-md-4 position-relative">
-        <!-- <label class="form-label">Location</label>
-        <i class="fas fa-map-marker-alt form-control-icon"></i>
-        <select class="form-select icon-input" id="locationSelect" multiple>
-          <option>Bangalore</option>
-          <option>Hyderabad</option>
-          <option>Chennai</option>
-          <option>Mumbai</option>
-          <option>Delhi</option>
-          <option>Pune</option>
-        </select> -->
-        <label class="form-label">Location</label>
-  <div class="mylocation-search-wrapper">
-    <i class="bi bi-geo-alt-fill mylocation-search-icon"></i>
-    <div class="mylocation-search" id="tagInputWrapper" onclick="focusInput()">
-      <input type="text" id="locationInput" placeholder="Type location..."  />
+ <div class="search-bar-wrapper mx-auto mt-4">
+    
+    <!-- Location -->
+    <!-- <div class="location-highlight">
+      <i class="bi bi-geo-alt-fill text-danger"></i>
+      Bangalore
+    </div> -->
+    <!-- <span class="text-muted">Add more...</span> -->
+     <div class="position-relative w-40">
+    <i class="bi bi-geo-alt-fill icon-left"></i>
+    <div class="tag-input-wrapper" id="tagInputWrapper" onclick="focusInput()">
+      <!-- tags -->
+      <input type="text" id="locationInput" placeholder="Type location..." / class="mynew-input">
     </div>
-    <div id="suggestions" class="mylocation-suggestions d-none"></div>
+    <div id="suggestions" class="suggestions d-none px-3 py-3 mt-2"></div>
+    <script src="fack.js"></script>
   </div>
-      </div>
-      <script>
-  const cities = [
-    "Delhi", "Mumbai", "Bengaluru", "Chennai", "Hyderabad", "Kolkata", "Pune", "Ahmedabad", "Jaipur", "Lucknow"
-  ];
 
-  const input = document.getElementById('locationInput');
-  const suggestionsBox = document.getElementById('suggestions');
-  const wrapper = document.getElementById('tagInputWrapper');
-  const selectedTags = [];
+    <!-- Divider -->
+    <div class="vr"></div>
 
-  input.addEventListener('input', () => {
-    const val = input.value.trim().toLowerCase();
-    suggestionsBox.innerHTML = '';
-
-    if (!val) {
-      suggestionsBox.classList.add('d-none');
-      return;
-    }
-
-    const filtered = cities.filter(city =>
-      city.toLowerCase().includes(val) &&
-      !selectedTags.includes(city)
-    );
-
-    if (filtered.length === 0) {
-      suggestionsBox.classList.add('d-none');
-      return;
-    }
-
-    filtered.forEach(city => {
-      const div = document.createElement('div');
-      div.textContent = city;
-      div.addEventListener('click', () => {
-        selectedTags.push(city);
-        renderTags();
-        input.value = '';
-        suggestionsBox.innerHTML = '';
-        suggestionsBox.classList.add('d-none');
-      });
-      suggestionsBox.appendChild(div);
-    });
-
-    suggestionsBox.classList.remove('d-none');
-  });
-
-  function renderTags() {
-    wrapper.querySelectorAll('.mylocation-tag').forEach(tag => tag.remove());
-
-    selectedTags.forEach((city, index) => {
-      const span = document.createElement('span');
-      span.className = 'mylocation-tag';
-      span.innerHTML = `${city} <i class="bi bi-x" onclick="removeTag(${index})"></i>`;
-      wrapper.insertBefore(span, input);
-    });
-  }
-
-  function removeTag(index) {
-    selectedTags.splice(index, 1);
-    renderTags();
-  }
-
-  function focusInput() {
-    input.focus();
-  }
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.mylocation-search-wrapper')) {
-      suggestionsBox.classList.add('d-none');
-    }
-  });
-</script>
-
-      <!-- Property Type Button -->
-      <div class="col-md-4">
-        <label class="form-label">Property Type</label>
-        <button class="btn btn-outline-danger w-100 py-2" id="togglePropertyType">
-          <i class="fas fa-home me-2"></i> Residential
+    <!-- Property Type -->
+    <div class="dropdown w-25">
+      <!-- <button class="btn dropdown-toggle text-dark d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-house-door-fill text-danger me-2"></i> Flat +2
+      </button> -->
+        <button class="btn dropdown-toggle " id="togglePropertyType" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-house-door-fill text-danger me-2"></i> Residential
         </button>
-      </div>
-
-      <!-- Budget -->
-      <div class="col-md-2">
-        <label class="form-label">Budget</label>
-        <select class="form-select">
-          <option selected>Budget</option>
-          <option>Under ₹10,000</option>
-          <option>₹10,000 - ₹20,000</option>
-          <option>₹20,000 - ₹50,000</option>
-          <option>Above ₹50,000</option>
-        </select>
-      </div>
-
-      <!-- Search Button -->
-      <div class="col-md-2">
-        <button class="btn btn-danger w-100 search-btn">
-          <i class="fas fa-search me-1"></i> Search
-        </button>
-      </div>
+      <!-- <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Flat</a></li>
+        <li><a class="dropdown-item" href="#">Villa</a></li>
+        <li><a class="dropdown-item" href="#">Studio</a></li>
+      </ul> -->
+    
     </div>
 
-    <!-- Property Type Section -->
-    <div class="property-type-section" id="propertyTypeSection">
+    <!-- Divider -->
+    <div class="vr"></div>
+
+    <!-- Budget -->
+    <div class="dropdown">
+      <!-- <button class="btn dropdown-toggle text-dark d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-currency-rupee text-danger me-2"></i> Budget
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Below ₹20 Lakh</a></li>
+        <li><a class="dropdown-item" href="#">₹20 - ₹50 Lakh</a></li>
+        <li><a class="dropdown-item" href="#">Above ₹50 Lakh</a></li>
+      </ul> -->
+       <div class="budget-dropdown">
+    <div class="budget-toggle dropdown-toggle  d-flex justify-content-between align-items-center" onclick="toggleDropdown()">
+      <span id="selectedBudget"><i class="bi bi-currency-rupee text-danger"></i> Budget</span>
+      <!-- <i class="bi bi-chevron-down"></i> -->
+    </div>
+
+    <div class="dropdown-content shadow custom-scrollbar" id="dropdownContent">
+      <div class="price-tabs custom-scrollbar">
+        <div class="price-tab active" onclick="showTab('min')">Min Price</div>
+        <div class="price-tab" onclick="showTab('max')">Max Price</div>
+      </div>
+
+      <div class="price-list" id="minPriceList">
+        <div onclick="setMinPrice('₹5 Lac')">₹5 Lac</div>
+        <div onclick="setMinPrice('₹10 Lac')">₹10 Lac</div>
+        <div onclick="setMinPrice('₹20 Lac')">₹20 Lac</div>
+        <div onclick="setMinPrice('₹30 Lac')">₹30 Lac</div>
+        <div onclick="setMinPrice('₹40 Lac')">₹40 Lac</div>
+        <div onclick="setMinPrice('₹50 Lac')">₹50 Lac</div>
+        <div onclick="setMinPrice('₹60 Lac')">₹60 Lac</div>
+      </div>
+
+      <div class="price-list d-none" id="maxPriceList">
+        <div onclick="setMaxPrice('₹5 Lac')">₹5 Lac</div>
+        <div onclick="setMaxPrice('₹10 Lac')">₹10 Lac</div>
+        <div onclick="setMaxPrice('₹20 Lac')">₹20 Lac</div>
+        <div onclick="setMaxPrice('₹30 Lac')">₹30 Lac</div>
+        <div onclick="setMaxPrice('₹40 Lac')">₹40 Lac</div>
+        <div onclick="setMaxPrice('₹50 Lac')">₹50 Lac</div>
+        <div onclick="setMaxPrice('₹60 Lac')">₹60 Lac</div>
+      </div>
+    </div>
+  </div>
+  <script src="select.js"></script>
+    </div>
+
+    <!-- Search Button -->
+    <button class="btn search-btn d-flex align-items-center">
+      <i class="bi bi-search me-2"></i> Search
+    </button>
+  </div>
+
+   <div class="container">
+     <div class="property-type-section custom-scrollbar" id="propertyTypeSection">
       <!-- Residential -->
       <div class="property-category">
         <div class="property-category-title"><i class="fas fa-building me-2"></i>Residential</div>
@@ -571,7 +585,8 @@
         </div>
       </div>
     </div>
-  </div>
+   </div>
+ 
 </div>
 
 
@@ -581,7 +596,7 @@
 
 <!-- we got property start -->
  
- <div class="container-fluid mt-5 pt-5 mycard" data-aos="fade-up" data-aos-duration="1000">
+ <div class="container-fluid mt-5 pt-5 mycard " data-aos="fade-up" data-aos-duration="1000">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -648,14 +663,14 @@
 
 <!-- popular property start -->
 
-<div class="container-fluid py-5" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000" >
-  <div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-3">
+<div class="container-fluid py-5 px-3" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000" >
+
+<div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="fw-semibold"><span class="pb-2 border-bottom border-warning border-2">Po</span>pular Owner Properties</h4>
-    <a href="#" class="text-danger fw-semibold text-decoration-none">See all Properties →</a>
+    <a href="#" class="text-danger fw-semibold text-decoration-none">See all →</a>
   </div>
 
-  <div class="swiper mySwiper card3">
+  <div class="swiper mySwiper card3 py-5">
     <div class="swiper-wrapper">
 
       <!-- Card 1 -->
@@ -668,7 +683,7 @@
               <i class="bi bi-image">4</i> 
               </span>
                <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
            
@@ -693,7 +708,7 @@
               <i class="bi bi-image"></i> 15
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -716,7 +731,7 @@
               <i class="bi bi-image"></i> 8
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -739,7 +754,7 @@
               <i class="bi bi-image"></i> 12
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -762,7 +777,7 @@
               <i class="bi bi-image"></i> 6
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -785,7 +800,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -806,7 +821,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -828,7 +843,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -850,7 +865,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -874,7 +889,6 @@
     <!-- Pagination (optional) -->
     <div class="swiper-pagination"></div>
   </div>
-</div>
 
 </div>
 
@@ -972,12 +986,14 @@
 <!-- property in lucknow -->
  <div class="container-fluid py-5" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000">
   <div class="container py-5">
-  <div class="d-flex justify-content-between align-items-center mb-3">
+  
+</div>
+<div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="fw-semibold"><span class="pb-2 border-bottom border-warning border-2">Po</span>pular Properties in Lucknow</h4>
-    <a href="#" class="text-danger fw-semibold text-decoration-none">See all Properties →</a>
+    <a href="#" class="text-danger fw-semibold text-decoration-none">See all →</a>
   </div>
 
-  <div class="swiper mySwiper">
+  <div class="swiper mySwiper px-3">
     <div class="swiper-wrapper">
 
       <!-- Card 1 -->
@@ -989,11 +1005,11 @@
               <i class="bi bi-image"></i> 4
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1016,7 +1032,7 @@
               <i class="bi bi-image"></i> 15
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1025,6 +1041,7 @@
             <h5 class="fw-bold mb-1">₹1.20 Cr <span class="fw-normal">| 1147 sqft</span></h5>
             <p class="mb-0 text-muted">Kalena Agrahara, Bangalore</p>
             <small class="text-muted">Ready to Move</small>
+           
           </div>
           <a href="#" class="view-details-btn">View Details</a>
         </div>
@@ -1039,7 +1056,7 @@
               <i class="bi bi-image"></i> 8
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1062,7 +1079,7 @@
               <i class="bi bi-image"></i> 12
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1085,7 +1102,7 @@
               <i class="bi bi-image"></i> 6
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1108,7 +1125,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1147,7 +1164,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1169,7 +1186,7 @@
               <i class="bi bi-image"></i> 10
             </span>
              <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
-              <i class="bi bi-bag-heart-fill">Buy</i>
+              <i class="fw-normal">Buy</i>
               </span>
             
           </div>
@@ -1193,7 +1210,6 @@
     <!-- Pagination (optional) -->
     <div class="swiper-pagination"></div>
   </div>
-</div>
 
 </div>
 <!-- property in lucknow end -->
@@ -1209,14 +1225,15 @@
  </div>
  
 
- <div class="container my-5 mycard2 py-5" data-aos="fade-up" data-aos-duration="1000" style="background-color: #f2f2f2;">
-    <div class="scroll-wrapper">
-      <div class="scroll-row">
+ <div class="container-fluid px-3 my-5 mycard2 pb-5" data-aos="fade-up" data-aos-duration="1000" >
+    <div class="scroll-wrapper ">
+      <div class="scroll-row  py-5 px-3">
 
         <!-- Card 1 -->
-        <div class="scroll-card shadow-lg bg-dark">
+        <div class="scroll-card shadow-lg bg-white shadow-lg mycard3">
           <div>
-            <img src="https://img.icons8.com/ios-filled/64/ffffff/combo-chart.png" width="40" class="mb-3" />
+            <!-- <img src="https://img.icons8.com/ios-filled/64/combo-chart.png" width="40" class="mb-3" /> -->
+            <i class="fas fa-chart-line mb-3" style="color:#dc3545; font-size: 30px;"></i>
             <h5 class="fw-semibold">Rates & Trends</h5>
             <p class="text-muted">Know all about Property Rates & Trends in your city</p>
           </div>
@@ -1224,9 +1241,10 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="scroll-card shadow-lg bg-dark">
+        <div class="scroll-card shadow-lg bg-white shadow-lg">
           <div>
-            <img src="https://img.icons8.com/ios-filled/64/calendar--v1.png" width="40" class="mb-3" />
+            <!-- <img src="https://img.icons8.com/ios-filled/64/calendar--v1.png" width="40" class="mb-3" /> -->
+            <i class="fas fa-calendar-days mb-3" style="font-size: 30px; color: #dc3545;"></i>
             <h5 class="fw-semibold">EMI Calculator</h5>
             <p class="text-muted">Know how much you'll have to pay every month on your loan</p>
           </div>
@@ -1234,9 +1252,11 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="scroll-card shadow-lg bg-dark">
+        <div class="scroll-card shadow-lg bg-white shadow-lg">
           <div>
-            <img src="https://img.icons8.com/ios-filled/64/receive-cash.png" width="40" class="mb-3" />
+            <!-- <img src="https://img.icons8.com/ios-filled/64/receive-cash.png" width="40" class="mb-3" /> -->
+            <i class="fas fa-hand-holding-dollar mb-3" style="font-size: 32px; color: #dc3545;"></i>
+
             <h5 class="fw-semibold">Investment Hotspot</h5>
             <p class="text-muted">Discover the top localities in your city for investment</p>
           </div>
@@ -1244,9 +1264,10 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="scroll-card shadow-lg bg-dark">
+        <div class="scroll-card shadow-lg bg-white shadow-lg">
           <div>
-            <img src="https://img.icons8.com/ios-filled/64/news.png" width="40" class="mb-3" />
+            <!-- <img src="https://img.icons8.com/ios-filled/64/news.png" width="40" class="mb-3" /> -->
+            <i class="fas fa-newspaper mb-3" style="font-size: 32px; color: #dc3545;"></i>
             <h5 class="fw-semibold">Research Insights</h5>
             <p class="text-muted">Get expert insights and research reports on real estate</p>
           </div>
@@ -1259,15 +1280,246 @@
 
 <!-- tools end -->
 
+<!-- property in lucknow -->
+ <div class="container-fluid py-5" style="background-color: #f2f2f2;" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container py-5">
+  
+</div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-semibold"><span class="pb-2 border-bottom border-warning border-2">To</span>p Properties in Lucknow</h4>
+    <a href="#" class="text-danger fw-semibold text-decoration-none">See all →</a>
+  </div>
+
+  <div class="swiper mySwiper px-3">
+    <div class="swiper-wrapper">
+
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p1.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 4
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.10 Cr <span class="fw-normal">| 1305 sqft</span></h5>
+            <p class="mb-0 text-muted">Hosahalli, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p2.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 15
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">2 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.20 Cr <span class="fw-normal">| 1147 sqft</span></h5>
+            <p class="mb-0 text-muted">Kalena Agrahara, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+           
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p3.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 8
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.75 Cr <span class="fw-normal">| 1450 sqft</span></h5>
+            <p class="mb-0 text-muted">Whitefield, Bangalore</p>
+            <small class="text-muted">Under Construction</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p4.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 12
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">4 BHK Villa</p>
+            <h5 class="fw-bold mb-1">₹2.80 Cr <span class="fw-normal">| 2400 sqft</span></h5>
+            <p class="mb-0 text-muted">Sarjapur Road, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 5 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p5.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 6
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">1 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹85 L <span class="fw-normal">| 850 sqft</span></h5>
+            <p class="mb-0 text-muted">Electronic City, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+      <!-- Card 6 -->
+      <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p6.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p7.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p8.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+
+       <div class="swiper-slide">
+        <div class="card border rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img src="img/p.jpg" class="card-img-top" alt="...">
+            <span class="badge bg-dark position-absolute top-0 start-0 m-2 px-2 py-1">
+              <i class="bi bi-image"></i> 10
+            </span>
+             <span class="badge d-flex justify-content-evenly bg-warning position-absolute top-0 end-0 m-2 px-2 py-1">
+              <i class="fw-normal">Buy</i>
+              </span>
+            
+          </div>
+          <div class="card-body">
+            <p class="mb-1 text-muted">3 BHK Flat</p>
+            <h5 class="fw-bold mb-1">₹1.95 Cr <span class="fw-normal">| 1650 sqft</span></h5>
+            <p class="mb-0 text-muted">Indiranagar, Bangalore</p>
+            <small class="text-muted">Ready to Move</small>
+          </div>
+          <a href="#" class="view-details-btn">View Details</a>
+        </div>
+      </div>
+      
+
+    </div>
+
+    <!-- Navigation arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- Pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+</div>
+<!-- property in lucknow end -->
+
 <!-- extra content -->
-  <div class="container mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container-fluid mt-5 pt-5" data-aos="fade-up" data-aos-duration="1000">
     <div class="row">
       <div class="col-sm-12">
         <h4 class="thin fw-semibold"><span class="pb-1 border-bottom border-2 border-info">Yo</span>ur Real Estate Guide</h4>
       </div>
     </div>
  </div>
- <div class="container my-5" data-aos="fade-up" data-aos-duration="1000">
+ <div class="container-fluid my-5" data-aos="fade-up" data-aos-duration="1000">
  
 
   <div class="row g-4" data-aos="fade-up" data-aos-duration="1000">
