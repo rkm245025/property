@@ -726,6 +726,9 @@
   h4.fw-semibold {
     font-size: 1.2rem !important;
   }
+   .sm-card{
+    gap: 15px;
+  }
 }
 
 /* Small screens (phones) */
@@ -749,6 +752,9 @@
   }
   h4.fw-semibold {
     font-size: 1rem !important;
+  }
+  .sm-card{
+    gap: 10px;
   }
 }
 /* Swiper slide and card height fix */
@@ -1092,7 +1098,7 @@
       align-items: center;
       gap: 20px;
       /* max-width: 95%; */
-      width: 90%;
+      width: 75%;
     }
 
     .location-highlight {
