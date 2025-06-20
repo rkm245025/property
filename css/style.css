@@ -109,12 +109,12 @@
     }
     
     .swiper .card:hover {
-      transform: translateY(-5px);
+/*       transform: translateY(-5px); */
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .swiper .card:hover .card-img-top {
-      transform: scale(1.05);
+/*       transform: scale(1.05); */
     }
     
     .swiper .card-body {
