@@ -1156,3 +1156,7 @@
 *::-webkit-scrollbar-thumb:hover {
   background-color: #999;
 }
+.bottom-sheet img {
+ height :40px;
+ width:40px;
+}
